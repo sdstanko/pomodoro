@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Megrim&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.min.css">
+	<title>Document</title>
+</head>
+
+<body>
+	<div class="wrapper">
+
+		
+		<main>
+			<section class="pomodoro">
+				<div class="pomodoro__row pomodoro__row--top block">
+					<h1 class="pomodoro__title">Pomodoro</h1>
+				</div>
+				<div class="pomodoro__row pomodoro__row--top block">
+					<span>Work timers done: </span><span class="pomodoro__works-done">0</span>
+				</div>
+				<div class="pomodoro__row pomodoro__row--center">
+					<div class="pomodoro__stop block">
+						<div class="pomodoro__btn" id="stop" tabindex="0">
+							Stop
+						</div>
+					</div>
+
+					<div class="pomodoro__pause block">
+						<div class="pomodoro__btn" id="pause" tabindex="0">
+							pause
+						</div>
+					</div>
+				</div>
+				<div class="pomodoro__main block">
+					<div class="pomodoro__start block" tabindex="0">
+						<span class="start-pomodoro__text">Start work</span>
+						<div class="pomodoro__timer">
+							<div class="pomodoro__minutes">25</div>
+							<span class="pomodoro__sep">:</span>
+							<div class="pomodoro__seconds">00</div>
+						</div>
+						<svg class="progress__bar" height="0" width="0">
+							<circle id="bar" cx="50%" cy="50%" r="44%" stroke="#17C6FE" stroke-width="30px" fill="transparent" pathLength="100"/>
+						</svg>
+					</div>
+				</div>
+				<div class="pomodoro__row pomodoro__row--bottom">
+					<div class="pomodoro__break block">
+						<div class="pomodoro__btn" id="break" tabindex="0">
+							Go to Break
+						</div>
+					</div>
+					<div class="pomodoro__settings block">
+						<div class="pomodoro__btn">
+							<a href="#settings" class="popup-link">Settings</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<div id="settings" class="settings popup popup_settings">
+	<div class="settings__body">
+		<div class="settings__content popup__body">
+			<a href="" class="settings__close">
+				<div class="settings__btn"></div>
+			</a>
+			<form action="#" class="settings__form">
+				<div class="settings__row">
+					<div class="settings__label">Work time:</div>
+					<div class="settings__choose settings__minute" tabindex="0">25</div>
+					<ul class="settings__work-time-list settings__list">
+						<li class="settings__work-time-num settings__num" tabindex="0">5</li>
+						<li class="settings__work-time-num settings__num" tabindex="0">10</li>
+						<li class="settings__work-time-num settings__num" tabindex="0">15</li>
+						<li class="settings__work-time-num settings__num" tabindex="0">20</li>
+						<li class="settings__work-time-num settings__num" tabindex="0">25</li>
+						<li class="settings__work-time-num settings__num" tabindex="0">30</li>
+						<li class="settings__work-time-num settings__num" tabindex="0">40</li>
+						<li class="settings__work-time-num settings__num" tabindex="0">50</li>
+						<li class="settings__work-time-num settings__num" tabindex="0">60</li>
+					</ul>
+				</div>
+				<div class="settings__row">
+					<div class="settings__label">Small break:</div>
+					<div class="settings__choose settings__small-break" tabindex="0">5</div>
+					<ul class="settings__small-break-list settings__list">
+						<li class="settings__small-break-num settings__num" tabindex="0">1</li>
+						<li class="settings__small-break-num settings__num" tabindex="0">2</li>
+						<li class="settings__small-break-num settings__num" tabindex="0">3</li>
+						<li class="settings__small-break-num settings__num" tabindex="0">4</li>
+						<li class="settings__small-break-num settings__num" tabindex="0">5</li>
+						<li class="settings__small-break-num settings__num" tabindex="0">6</li>
+						<li class="settings__small-break-num settings__num" tabindex="0">7</li>
+						<li class="settings__small-break-num settings__num" tabindex="0">8</li>
+						<li class="settings__small-break-num settings__num" tabindex="0">9</li>
+						<li class="settings__small-break-num settings__num" tabindex="0">10</li>
+					</ul>
+				</div>
+				<div class="settings__row">
+					<div class="settings__label">Big break:</div>
+					<div class="settings__choose settings__big-break" tabindex="0">30</div>
+					<ul class="settings__big-break-list settings__list">
+						<li class="settings__big-break-num settings__num" tabindex="0">5</li>
+						<li class="settings__big-break-num settings__num" tabindex="0">10</li>
+						<li class="settings__big-break-num settings__num" tabindex="0">15</li>
+						<li class="settings__big-break-num settings__num" tabindex="0">20</li>
+						<li class="settings__big-break-num settings__num" tabindex="0">25</li>
+						<li class="settings__big-break-num settings__num" tabindex="0">30</li>
+					</ul>
+				</div>
+				<div class="settings__row">
+					<div class="settings__label">Big break after:</div>
+					<div class="settings__choose settings__break-after" tabindex="0">4</div>
+					<ul class="settings__big-break-after-list settings__list">
+						<li class="settings__big-break-after-num settings__num" tabindex="0">2</li>
+						<li class="settings__big-break-after-num settings__num" tabindex="0">3</li>
+						<li class="settings__big-break-after-num settings__num" tabindex="0">4</li>
+						<li class="settings__big-break-after-num settings__num" tabindex="0">5</li>
+						<li class="settings__big-break-after-num settings__num" tabindex="0">6</li>
+						<li class="settings__big-break-after-num settings__num" tabindex="0">7</li>
+						<li class="settings__big-break-after-num settings__num" tabindex="0">8</li>
+						<li class="settings__big-break-after-num settings__num" tabindex="0">9</li>
+						<li class="settings__big-break-after-num settings__num" tabindex="0">10</li>
+					</ul>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+		
+	</div>
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('html/head.html',{
+"title": "Главная"
+})
+
+<body>
+	<div class="wrapper">
+
+		@@include("html/header.html", {})
+		<main>
+			<section class="pomodoro">
+				<div class="pomodoro__row pomodoro__row--top block">
+					<h1 class="pomodoro__title">Pomodoro</h1>
+				</div>
+				<div class="pomodoro__row pomodoro__row--top block">
+					<span>Work timers done: </span><span class="pomodoro__works-done">0</span>
+				</div>
+				<div class="pomodoro__row pomodoro__row--center">
+					<div class="pomodoro__stop block">
+						<div class="pomodoro__btn" id="stop" tabindex="0">
+							Stop
+						</div>
+					</div>
+
+					<div class="pomodoro__pause block">
+						<div class="pomodoro__btn" id="pause" tabindex="0">
+							pause
+						</div>
+					</div>
+				</div>
+				<div class="pomodoro__main block">
+					<div class="pomodoro__start block" tabindex="0">
+						<span class="start-pomodoro__text">Start work</span>
+						<div class="pomodoro__timer">
+							<div class="pomodoro__minutes">25</div>
+							<span class="pomodoro__sep">:</span>
+							<div class="pomodoro__seconds">00</div>
+						</div>
+						<svg class="progress__bar" height="0" width="0">
+							<circle id="bar" cx="50%" cy="50%" r="44%" stroke="#17C6FE" stroke-width="30px" fill="transparent" pathLength="100"/>
+						</svg>
+					</div>
+				</div>
+				<div class="pomodoro__row pomodoro__row--bottom">
+					<div class="pomodoro__break block">
+						<div class="pomodoro__btn" id="break" tabindex="0">
+							Go to Break
+						</div>
+					</div>
+					<div class="pomodoro__settings block">
+						<div class="pomodoro__btn">
+							<a href="#settings" class="popup-link">Settings</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		@@include("html/settings.html", {})
+		@@include("html/footer.html", {})
+	</div>
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

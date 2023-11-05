@@ -1,0 +1,289 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  padding: 0;
+  list-style: none;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+body {
+  font-family: "Audiowide", cursive;
+  overflow: hidden;
+  user-select: none;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+.popup-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.pomodoro {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 100%;
+  color: #F4F4F4;
+  background: #2E2E2E;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .pomodoro__row--top {
+    flex: 1 1 12%;
+  }
+}
+.pomodoro__title {
+  font-family: "Megrim", cursive;
+  font-size: 3rem;
+}
+.pomodoro__btn {
+  padding: 45px;
+  cursor: pointer;
+}
+.pomodoro__row {
+  display: flex;
+  flex: 1 1 20%;
+}
+.pomodoro__stop {
+  flex: 0 1 50%;
+}
+.pomodoro__pause {
+  flex: 0 1 50%;
+}
+.pomodoro__main {
+  position: relative;
+  flex: 1 0 40%;
+}
+.pomodoro__start {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: #17C6FE;
+  transition: 0.3s linear;
+  cursor: pointer;
+}
+.pomodoro__start.active {
+  width: calc(var(--vh, 1vh) * 40);
+  background: #2E2E2E;
+  font-size: 0;
+  cursor: default;
+}
+.pomodoro__start.active .progress__bar {
+  opacity: 1;
+  visibility: visible;
+  width: 100%;
+  height: 100%;
+}
+.pomodoro__start.active .pomodoro__timer {
+  font-size: 2rem;
+}
+.pomodoro__start.active .pomodoro__minutes {
+  min-width: 60px;
+}
+.pomodoro__start.active .pomodoro__seconds {
+  min-width: 60px;
+}
+.pomodoro__timer {
+  display: flex;
+  transition: 0.3s linear;
+  font-size: 0;
+}
+.pomodoro__minutes {
+  text-align: right;
+}
+.pomodoro__seconds {
+  text-align: left;
+}
+.pomodoro__break {
+  flex: 0 1 50%;
+}
+.pomodoro__settings {
+  flex: 0 1 50%;
+}
+
+.progress__bar {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s linear;
+  transform: rotate(-90deg);
+}
+.progress__bar #bar {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+}
+
+.pomodoro {
+  height: 100vh;
+  /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+.settings {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: 0.5s linear;
+  background: rgba(0, 0, 0, 0.5019607843);
+}
+.settings.open {
+  opacity: 1;
+  visibility: visible;
+}
+.settings__body {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 10px;
+}
+.settings__content {
+  position: relative;
+  background: #2E2E2E;
+  color: #F4F4F4;
+  padding: 70px 30px 40px;
+}
+.settings__btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #17C6FE;
+  border-radius: 50%;
+}
+.settings__btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #17C6FE;
+  width: 2px;
+  height: 20px;
+  transform: translate3d(-50%, -50%, 0) rotate(45deg);
+}
+.settings__btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #17C6FE;
+  width: 2px;
+  height: 20px;
+  transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+}
+.settings__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.settings__row:not(:last-child) {
+  margin-bottom: 20px;
+}
+.settings__label {
+  margin-right: 20px;
+}
+.settings__choose {
+  position: relative;
+  width: 100px;
+  background: #fff;
+  color: #2E2E2E;
+  padding: 10px 20px;
+  user-select: none;
+  cursor: pointer;
+}
+.settings__choose::before, .settings__choose::after {
+  content: "";
+  position: absolute;
+  background: #2E2E2E;
+  width: 3px;
+  height: 15px;
+  top: 13px;
+  border-radius: 2px;
+}
+.settings__choose::before {
+  transform: rotate(-45deg);
+  right: 30px;
+}
+.settings__choose::after {
+  transform: rotate(45deg);
+  right: 20px;
+}
+.settings__list {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  top: 100%;
+  width: 100px;
+  background: #17C6FE;
+  text-align: center;
+}
+.settings__list.active {
+  display: block;
+}
+.settings__num {
+  padding: 10px 0;
+  user-select: none;
+  cursor: pointer;
+}

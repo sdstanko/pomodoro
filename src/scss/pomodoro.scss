@@ -1,0 +1,127 @@
+.pomodoro {
+	// height: 100vh;
+	display: flex;
+	flex-direction: column;
+	flex: 1 0 100%;
+	color: $primary;
+	background: $secondaryButton;
+	text-align: center;
+
+	&__row--top {
+		@media (max-width: 768px) {
+			flex: 1 1 12%;
+		}
+	}
+
+	&__title {
+		font-family: 'Megrim', cursive;
+		font-size: 3rem;
+	}
+
+	&__btn {
+		padding: 45px;
+		cursor: pointer;
+	}
+
+	&__row {
+		display: flex;
+		flex: 1 1 20%;
+	}
+
+	&__row--center {}
+
+	&__stop {
+		flex: 0 1 50%;
+	}
+
+	&__pause {
+		flex: 0 1 50%;
+	}
+
+	&__main {
+		position: relative;
+		flex: 1 0 40%;
+
+	}
+
+	&__start {
+		position: relative;
+		z-index: 2;
+		width: 100%;
+		height: 100%;
+		background: $mainButton;
+		transition: .3s linear;
+		cursor: pointer;
+
+		&.active {
+			width: calc(var(--vh, 1vh) * 40);
+			background: $secondaryButton;
+			font-size: 0;
+			cursor: default;
+
+			.progress__bar {
+				opacity: 1;
+				visibility: visible;
+				width: 100%;
+				height: 100%;	
+			}
+
+			.pomodoro__timer {
+				font-size: 2rem;
+			}
+
+			.pomodoro__minutes {
+				min-width: 60px;
+			}
+
+			.pomodoro__seconds {
+				min-width: 60px;
+			}
+		}
+	}
+
+	&__timer {
+		display: flex;
+		transition: .3s linear;
+		font-size: 0;
+	}
+
+	&__minutes {
+		text-align: right;
+	}
+
+	&__seconds {
+		text-align: left;
+	}
+
+	&__row--bottom {}
+
+	&__break {
+		flex: 0 1 50%;
+	}
+
+	&__settings {
+		flex: 0 1 50%;
+	}
+}
+
+.progress__bar {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+
+	transition: .3s linear;
+	transform: rotate(-90deg);
+
+	#bar {
+		stroke-dasharray: 100;
+		stroke-dashoffset: 0;
+	}
+}
+
+
+.pomodoro {
+	height: 100vh;
+	/* Fallback for browsers that do not support Custom Properties */
+	height: calc(var(--vh, 1vh) * 100);
+}
