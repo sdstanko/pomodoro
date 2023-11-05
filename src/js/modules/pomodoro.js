@@ -44,7 +44,7 @@ function start() {
     percent = 100 / (minute * 60);
     minute--;
     second = 60;
-    interval = setInterval(startTimer, 100);
+    interval = setInterval(startTimer, 1000);
 }
 
 function pause() {
